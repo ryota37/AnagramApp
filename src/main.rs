@@ -57,7 +57,7 @@ fn main() {
     if guess == original {
         println!("Correct!");
     } else {
-        println!("Incorrect!");
+        println!("Incorrect! The correct answer was: {}", original);
     }
 
     if guess == "give up" {
