@@ -50,6 +50,11 @@ fn main() {
     println!("Shuffled: {}", shuffled);
 
     // Recieve user guess
+    println!("\nEnter your answer:");
+    print!("> ");
+    use std::io::Write;
+    std::io::stdout().flush().unwrap();
+    
     let mut guess = String::new();
     std::io::stdin().read_line(&mut guess).expect("Failed to read line");
     let guess = guess.trim();
