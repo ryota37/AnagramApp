@@ -28,8 +28,15 @@ fn load_words_from_csv(path: &str) -> Result<Vec<WordEntry>, Box<dyn Error>> {
 fn shuffle_japanese_string(input: &str) -> String {
     let mut chars: Vec<char> = input.chars().collect();
     let mut rng = thread_rng();
-    chars.shuffle(&mut rng);
-    chars.into_iter().collect()
+    
+    // Keep shuffling until the result is different from the original
+    loop {
+        chars.shuffle(&mut rng);
+        let shuffled: String = chars.iter().collect();
+        if shuffled != input {
+            return shuffled;
+        }
+    }
 }
 
 fn main() {
